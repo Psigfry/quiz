@@ -31,9 +31,16 @@ Route::middleware('auth')->group(function () {
     })->name('quizzes.show');
 
     Route::get('/quizzes/{id}/question/{number}', function ($id, $number) {
-        $question = \App\Models\Question::find($number);
-        return view('quizzes.show', compact('quiz'));
-    })->name('quizzes.show');
+        $quiz = \App\Models\Quiz::find($id);
+        $question = $quiz->questions()->find($number)->first();
+
+        //dd($question);
+        return view('quizzes.question', [
+            'quiz' => $quiz,
+            'question' => $question,
+            'number' => $number
+        ]);
+    })->name('quizzes.question');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
