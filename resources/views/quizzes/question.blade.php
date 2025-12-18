@@ -8,7 +8,7 @@
         Вопрос {{ $number }}: {{ $question->text }}
     </h2>
 
-    <form>
+    <form method="post" action="{{ route('quizzes.answer', [$quiz, $number]) }}">
         @csrf
 
         <div class="space-y-3">
