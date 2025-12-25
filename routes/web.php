@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Models\Quiz;
+use App\Models\QuizResult;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -69,9 +70,30 @@ Route::middleware('auth')->group(function () {
 
         $result = session("quiz_{$quiz->id}.results", []);
 
-        $correct = array_sum($result);
+        $correct = array_sum($result); // 18
 
-        $total = count($result);
+        $total = count($result); // 20
+
+        $score = 0;
+
+        $percent = ($correct / $total) * 100;
+
+        if( $percent >= 85 ){
+            $score = match ($quiz->difficulty) {
+                'легкий' => 10,
+                'средний' => 20,
+                'тяжелый' => 30,
+                default => 0,
+            };
+        }
+
+        QuizResult::create([
+            'user_id' => auth()->id(),
+            'quiz_id' => $id,
+            'score' => $score,
+            'correct_answer' => $correct,
+            'total_questions' => $total,
+        ]);
 
         session()->forget("quiz_{$quiz->id}.results");
 
