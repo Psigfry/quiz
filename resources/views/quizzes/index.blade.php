@@ -62,7 +62,7 @@
                                 </td>
 
                                 <td class="px-4 py-3 flex items-center justify-end">
-                                    <a href="#"
+                                    <a href="{{route('quizzes.show', $quiz->id)}}"
                                        class="text-blue-600 hover:underline">
                                         Открыть →
                                     </a>
