@@ -48,7 +48,7 @@
 
         <!-- Кнопка начать -->
         <div class="text-center mt-8">
-            <a href="{{route('quizzes.question', [$quiz->id, 1])}}"
+            <a href="{{route('quizzes.start', [$quiz->id])}}"
                class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">
                 Начать квиз
             </a>
