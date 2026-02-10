@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Quiz;
 
 class QuizQuestionController extends Controller
@@ -28,9 +29,14 @@ class QuizQuestionController extends Controller
     public function answer($id, $number){
         $quiz = Quiz::find($id);
 
-        $isCorrect = request('answer') === '1';
+        $answer = Answer::findOrFail(request('answer'));
 
-        session()->push("quiz_{$quiz->id}.results", $isCorrect);
+        $isCorrect = (bool) $answer->is_correct;
+
+        session()->put(
+            "quiz_{$quiz->id}.results.$number",
+            $isCorrect
+        );
 
         return redirect()->route('quizzes.question', [
             'id' => $quiz->id,

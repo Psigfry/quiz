@@ -14,7 +14,7 @@
         <div class="space-y-3">
             @foreach($question->answers as $answer)
                 <label class="block p-3 border rounded-lg cursor-pointer">
-                    <input type="radio" name="answer" value="{{ $answer->is_correct ? 1 : 0 }}" required>
+                    <input type="radio" name="answer" value="{{ $answer->id }}" required>
                     {{ $answer->text }}
                 </label>
             @endforeach
