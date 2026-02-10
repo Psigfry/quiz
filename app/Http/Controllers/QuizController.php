@@ -23,6 +23,18 @@ class QuizController extends Controller
         return view('quizzes.show', compact('quiz'));
     }
 
+    public function start($id)
+    {
+        $quiz = Quiz::findOrFail($id);
+
+        session()->forget("quiz_{$quiz->id}.results");
+
+        return redirect()->route('quizzes.question', [
+            'id' => $quiz->id,
+            'number' => 1
+        ]);
+    }
+
     public function finish($id){
         $quiz = Quiz::find($id);
 

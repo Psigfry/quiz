@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/quizzes', [QuizController::class, 'index'])->name('quizzes.index'); // список всех квизов
     Route::get('/quizzes/{id}', [QuizController::class, 'show'])->name('quizzes.show'); // один квиз
+    Route::get('/quizzes/{id}/start', [QuizController::class, 'start'])->name('quizzes.start');
     Route::get('/quizzes/{id}/question/{number}', [QuizQuestionController::class, 'show'])->name('quizzes.question');
     Route::post('/quizzes/{id}/question/{number}', [QuizQuestionController::class, 'answer'])->name('quizzes.answer');
     Route::get('/quizzes/{id}/finish', [QuizController::class, 'finish'])->name('quizzes.finish');
