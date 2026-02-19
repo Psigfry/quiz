@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quiz;
 use App\Models\QuizResult;
 use Illuminate\Support\Facades\DB;
 
@@ -14,8 +15,16 @@ class DashboardController extends Controller
 
         $results = QuizResult::where('user_id', $userId)->get();
 
-        $totalQuizes = $results->count();
-        $totalScore = $results->sum('score');
+        $totalQuizzes = Quiz::count();
+
+        $completedQuizzes = QuizResult::where('user_id', $userId)->distinct()->count('user_id');
+
+        $bestResults = QuizResult::where('user_id', $userId)
+            ->select('quiz_id', DB::raw('MAX(score) as best_score'))
+            ->groupBy('quiz_id')
+            ->get();
+
+        $totalScore = $bestResults->sum('best_score');
 
         $averagePercent = $results->count()
             ? round(
@@ -34,7 +43,8 @@ class DashboardController extends Controller
             ->get();
 
         return view('dashboard', compact(
-            'totalQuizes',
+            'totalQuizzes',
+            'completedQuizzes',
             'totalScore',
             'bestScore',
             'averagePercent',
