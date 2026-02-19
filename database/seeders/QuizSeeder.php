@@ -118,6 +118,13 @@ class QuizSeeder extends Seeder
                 'difficulty' => 'легкий',
                 'description' => 'Строение организма и основы гигиены.',
             ],
+            [
+                'title' => 'Информатика — логические вычисления',
+                'subject' => 'Информатика',
+                'grade' => '7',
+                'difficulty' => 'средний',
+                'description' => 'Проверь знание в вычислениях',
+            ],
         ]);
     }
 }
