@@ -8,8 +8,10 @@ class QuizQuestionController extends Controller
 {
     public function show($id, $number)
     {
-        $quiz = Quiz::find($id);
-        $question = $quiz->questions()->find($number);
+        $quiz = Quiz::findOrFail($id);
+        $questions = $quiz->questions()->orderBy('id')->get();
+
+        $question = $questions->get($number - 1);
 
         if ($number === 1){
             session()->forget("quiz_{$quiz->id}.results");
