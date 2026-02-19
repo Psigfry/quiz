@@ -18,7 +18,11 @@
                     <x-nav-link :href="route('quizzes.index')" :active="request()->routeIs('quizzes.index')">
                         Квизы
                     </x-nav-link>
+                    <x-nav-link :href="route('rating')" :active="request()->routeIs('rating')">
+                        Топ 100
+                    </x-nav-link>
                 </div>
+                <!-- Navigation Links -->
             </div>
 
             <!-- Settings Dropdown -->
