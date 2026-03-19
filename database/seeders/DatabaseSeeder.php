@@ -17,13 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'admin@admin.com',
-            'password' => 'admin'
-        ]);
-
         $this->call(QuizSeeder::class);
         $this->call(QuizQuestionsSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(QuizResultSeeder::class);
     }
 }
