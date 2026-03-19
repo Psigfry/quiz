@@ -13,6 +13,7 @@ class QuizQuestionController extends Controller
 
         $question = $questions->get($number - 1);
 
+        $totalQuestions = count($questions);
         if ($number === 1){
             session()->forget("quiz_{$quiz->id}.results");
         }
@@ -24,7 +25,8 @@ class QuizQuestionController extends Controller
         return view('quizzes.question', [
             'quiz' => $quiz,
             'question' => $question,
-            'number' => $number
+            'number' => $number,
+            'totalQuestions' => $totalQuestions
         ]);
     }
 

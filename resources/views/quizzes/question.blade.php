@@ -4,8 +4,11 @@
 
 <div class="max-w-xl mx-auto p-4">
 
+    <h2 class="text-center text-xl font-bold mb-4">
+        Вопрос {{ $number }}/{{ $totalQuestions }}
+    </h2>
     <h2 class="text-xl font-bold mb-4">
-        Вопрос {{ $number }}: {{ $question->text }}
+        {{ $question->text }}
     </h2>
 
     <form id="quiz-form" method="post" action="{{ route('quizzes.answer', [$quiz, $number]) }}">
@@ -74,7 +77,7 @@
 
         setTimeout(() => {
             form.submit();
-        }, 2000);
+        }, 1000);
     });
 </script>
 
