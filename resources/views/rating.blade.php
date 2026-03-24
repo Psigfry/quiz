@@ -19,9 +19,37 @@
 
                         <tbody class="text-center">
                         @foreach($topUsers as $index => $topUser)
-                            <tr class="border-b dark:border-gray-700">
-                                <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{$index + 1}}
+                            @php
+                                $place = $index + 1;
+
+                                if ($place == 1) {
+                                    $rowClass = 'bg-yellow-300 hover:bg-yellow-400';
+                                }elseif ($place == 2){
+                                    $rowClass = 'bg-gray-300 hover:bg-gray-400';
+                                }elseif ($place == 3){
+                                    $rowClass = 'bg-orange-300 hover:bg-orange-400';
+                                }else
+                                    $rowClass = 'border-b dark:border-gray-700';
+
+                                if (auth()->id() === $topUser->user->id){
+                                    $rowClass .= ' bg-blue-50';
+                                }
+
+                            @endphp
+                            <tr class="{{$rowClass}}">
+                                <th class=" px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    @if($place == 1)
+                                        🥇
+
+                                    @elseif($place == 2)
+                                        🥈
+
+                                    @elseif($place == 3)
+                                        🥉
+
+                                    @else
+                                        {{$place}}
+                                    @endif
                                 </th>
                                 <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{$topUser->user->name}}
