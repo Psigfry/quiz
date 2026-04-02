@@ -61,10 +61,10 @@
                                     {{ $quiz->description }}
                                 </td>
 
-                                <td class="px-4 py-3 flex items-center justify-end">
+                                <td class="px-4 py-3">
                                     <a href="{{route('quizzes.show', $quiz->id)}}"
                                        class="text-blue-600 hover:underline">
-                                        Открыть →
+                                        Открыть
                                     </a>
                                 </td>
 
