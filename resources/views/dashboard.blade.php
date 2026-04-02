@@ -9,7 +9,7 @@
                     <div class="text-center text-2xl text-black">
                         Статистика квизов
                     </div>
-                    <div class="grid grid-cols-4 pt-4 text-center gap-4">
+                    <div class="grid mt-2 lg:grid-cols-4 text-center gap-4">
                         <div>Пройдено квизов: {{$completedQuizzes}} из {{$totalQuizzes}}</div>
                         <div>Кол-во уникальных очков: {{$totalScore}}</div>
                         <div>Средний %: {{$averagePercent}}</div>
