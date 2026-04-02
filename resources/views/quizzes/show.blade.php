@@ -49,15 +49,17 @@
         <!-- Кнопка начать -->
         <div class="text-center mt-8">
             <a href="{{route('quizzes.start', [$quiz->id])}}"
-               class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">
+               class="w-full block text-center bg-blue-600 max-w-80 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">
                 Начать квиз
             </a>
         </div>
 
-        <div>
-        <a href="{{route('quizzes.index')}}" class="button">
-        Назад
-        </a>
+        <div class="mt-2 block m-auto">
+            <a href="{{route('quizzes.index')}}"
+               class="w-full button max-w-80">
+            Назад
+            </a>
+        </div>
 
         <style>
         .button {
