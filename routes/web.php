@@ -8,16 +8,13 @@ use App\Models\Quiz;
 use App\Models\QuizResult;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/test', function () {
     $questions = \App\Models\Question::all();
     dd($questions);
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/rating', [DashboardController::class, 'rating'])->name('rating');
 
