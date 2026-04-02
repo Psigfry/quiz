@@ -77,7 +77,14 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('quizzes.index')" :active="request()->routeIs('quizzes.index')">
+                Квизы
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('rating')" :active="request()->routeIs('rating')">
+                Топ 100
+            </x-responsive-nav-link>
         </div>
+
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
