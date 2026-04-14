@@ -17,7 +17,7 @@ class DashboardController extends Controller
 
         $totalQuizzes = Quiz::count();
 
-        $completedQuizzes = QuizResult::where('user_id', $userId)->distinct()->count('user_id');
+        $completedQuizzes = QuizResult::where('user_id', $userId)->distinct('quiz_id')->count('quiz_id');
 
         $bestResults = QuizResult::where('user_id', $userId)
             ->select('quiz_id', DB::raw('MAX(score) as best_score'))
