@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
+    <section class="bg-gray-50 p-3 sm:p-5">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
 
-            <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+            <div class="bg-white relative shadow-md sm:rounded-lg overflow-hidden">
 
                 <!-- Верхняя панель -->
                 <div class="flex flex-col md:flex-row items-center justify-between p-4">
                     <div class="w-full md:w-1/3">
                         <input type="text"
-                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2"
                                placeholder="Поиск квизов..." disabled>
                     </div>
 
@@ -24,9 +24,9 @@
 
                 <!-- Таблица -->
                 <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <table class="w-full text-sm text-left text-gray-500">
 
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
                             <th class="px-4 py-3">Название</th>
                             <th class="px-4 py-3">Предмет</th>
@@ -39,9 +39,9 @@
 
                         <tbody>
                         @foreach($quizzes as $quiz)
-                            <tr class="border-b dark:border-gray-700">
+                            <tr class="border-b">
 
-                                <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
                                     {{ $quiz->title }}
                                 </th>
 

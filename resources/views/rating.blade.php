@@ -4,12 +4,12 @@
 
 
 
-    <div class="py-12">
+    <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-center  text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-xs text-center  text-gray-700 uppercase bg-gray-50">
                         <tr>
                             <th class="px-4 py-3">Место</th>
                             <th class="px-4 py-3">Пользователь</th>
@@ -29,7 +29,7 @@
                                 }elseif ($place == 3){
                                     $rowClass = 'bg-orange-300 hover:bg-orange-400';
                                 }else
-                                    $rowClass = 'border-b dark:border-gray-700';
+                                    $rowClass = 'border-b';
 
                                 if (auth()->id() === $topUser->user->id){
                                     $rowClass .= ' bg-blue-50';
@@ -37,7 +37,7 @@
 
                             @endphp
                             <tr class="{{$rowClass}}">
-                                <th class=" px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th class=" px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
                                     @if($place == 1)
                                         🥇
 
@@ -51,10 +51,10 @@
                                         {{$place}}
                                     @endif
                                 </th>
-                                <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
                                     {{$topUser->user->name}}
                                 </th>
-                                <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
                                     {{$topUser->total_score}}
                                 </th>
                             </tr>

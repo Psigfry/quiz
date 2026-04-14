@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="bg-gray-50 dark:bg-gray-900 p-4">
-    <div class="max-w-2xl mx-auto bg-white dark:bg-gray-800 shadow rounded-lg p-6">
+<section class="bg-gray-50 p-4">
+    <div class="max-w-2xl mx-auto bg-white shadow rounded-lg p-6">
 
         <!-- Название -->
-        <h1 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+        <h1 class="text-2xl font-bold mb-4 text-gray-900">
             {{ $quiz->title }}
         </h1>
 
         <!-- Параметры квиза -->
-        <div class="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+        <div class="space-y-2 text-gray-700 mb-6">
             <p><strong>Предмет:</strong> {{ $quiz->subject }}</p>
             <p><strong>Класс:</strong> {{ $quiz->grade }}</p>
             <p><strong>Сложность:</strong> {{ ucfirst($quiz->difficulty) }}</p>
@@ -29,16 +29,16 @@
 
         <!-- Описание -->
         <div class="mb-6">
-            <h2 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Описание</h2>
-            <p class="text-gray-700 dark:text-gray-300">
+            <h2 class="text-lg font-semibold mb-2 text-gray-900">Описание</h2>
+            <p class="text-gray-700">
                 {{ $quiz->description }}
             </p>
         </div>
 
         <!-- Инструкция -->
         <div class="mb-6">
-            <h2 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Как проходит квиз</h2>
-            <ul class="list-disc ml-5 text-gray-700 dark:text-gray-300 space-y-1">
+            <h2 class="text-lg font-semibold mb-2 text-gray-900">Как проходит квиз</h2>
+            <ul class="list-disc ml-5 text-gray-700 space-y-1">
                 <li>После нажатия кнопки “Начать” появится первый вопрос.</li>
                 <li>К каждому вопросу будет 4 варианта ответа.</li>
                 <li>Выберите один вариант — система покажет, правильно или нет.</li>
