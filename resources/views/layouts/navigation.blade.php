@@ -21,6 +21,11 @@
                     <x-nav-link :href="route('rating')" :active="request()->routeIs('rating')">
                         Топ 100
                     </x-nav-link>
+                    @if(auth()->user()->isAdmin())
+                        <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.*')">
+                            Админ панель
+                        </x-nav-link>
+                    @endif
                 </div>
                 <!-- Navigation Links -->
             </div>
@@ -83,6 +88,11 @@
             <x-responsive-nav-link :href="route('rating')" :active="request()->routeIs('rating')">
                 Топ 100
             </x-responsive-nav-link>
+            @if(auth()->user()->isAdmin())
+            <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.*')">
+                Админ панель
+            </x-responsive-nav-link>
+            @endif
         </div>
 
 
