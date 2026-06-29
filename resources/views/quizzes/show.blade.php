@@ -47,14 +47,22 @@
         </div>
 
         <!-- Кнопка начать -->
-        <div class="text-center mt-8">
+        <div class="space-y-3 text-center mt-8">
             <a href="{{route('quizzes.start', [$quiz->id])}}"
                class="w-full block text-center bg-blue-600 max-w-80 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">
                 Начать квиз
             </a>
+
+            <form method="POST" action="{{route('online.sessions.store', $quiz)}}">
+                @csrf
+                <button type="submit"
+                   class="w-full block text-center bg-blue-600 max-w-80 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">
+                    Создать онлайн-игру
+                </button>
+            </form>
         </div>
 
-        <div class="mt-2 block m-auto">
+        <div class="mt-3 block m-auto">
             <a href="{{route('quizzes.index')}}"
                class="w-full button max-w-80">
             Назад
