@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminQuizController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OnlineQuizSessionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuizQuestionController;
@@ -26,6 +27,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/quizzes/{id}/question/{number}', [QuizQuestionController::class, 'show'])->name('quizzes.question');
     Route::post('/quizzes/{id}/question/{number}', [QuizQuestionController::class, 'answer'])->name('quizzes.answer');
     Route::get('/quizzes/{id}/finish', [QuizController::class, 'finish'])->name('quizzes.finish');
+
+    Route::post('/quizzes/{quiz}/online-session', [OnlineQuizSessionController::class, 'store'])->name('online.sessions.store');
+
+    Route::get('/online/{code}/host', [OnlineQuizSessionController::class, 'host'])->name('online.host');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
